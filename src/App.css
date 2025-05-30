@@ -1,40 +1,105 @@
 
-
-h1{
+h1 {
   text-align: center;
 }
-.flag{
-  width: 150px;
+
+
+.flag {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
 }
-.coutries-list{
+
+.coutries-list {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 10px;
 }
-.card{
+
+
+.card {
+  position: relative;
   padding: 10px;
   border: 1px solid #ddd;
   background: gray;
   border-radius: 8px;
   width: 200px;
+  min-height: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 200px;
+  max-width: 100%;
 }
+
+
+.country-name {
+  font-size: 1rem;
+}
+.country-capital,
+.region {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 .search-box-container {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
+
 .search-box {
   display: block;
   margin: 0 auto 20px;
-  width: 50%;
+  width: 80%;
+  max-width: 400px;
   padding: 8px;
+  font-size: 1rem;
 }
+
 
 select {
   display: block;
   margin: 0 auto 30px;
   padding: 8px;
-  width: 200px;
+  width: 80%;
+  max-width: 200px;
+  font-size: 1rem;
+}
+
+
+.weather-button {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 90%;
+    min-height: 300px;
+  }
+
+  .weather-button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
 }

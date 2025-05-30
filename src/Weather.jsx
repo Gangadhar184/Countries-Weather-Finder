@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { WEATHER_API_KEY } from "./constants";
+import './Weather.css'
 
 const Weather = () => {
   const navigate = useNavigate();
@@ -39,13 +40,21 @@ const Weather = () => {
   }
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)}>← Back</button>
-      <h2>Weather in {capital}</h2>
-      <p>Temperature: {weatherData.main.temp}°C</p>
-      <p>Humidity: {weatherData.main.humidity}%</p>
-      <p>Condition: {weatherData.weather[0].description}</p>
-    </div>
+    <>
+      <button className="back-btn" onClick={() => navigate(-1)}>Back</button>
+      <div className="weather-container">
+
+        <h2>Weather in {capital}</h2>
+        <img
+          src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+          alt={weatherData.weather[0].description}
+          className="weather-icon"
+        />
+        <p>Temperature: {weatherData.main.temp}°C</p>
+        <p>Humidity: {weatherData.main.humidity}%</p>
+        <p>Condition: {weatherData.weather[0].description}</p>
+      </div>
+    </>
   );
 };
 
